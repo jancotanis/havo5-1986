@@ -2,7 +2,7 @@
   "image": "havo5-2026.jpeg",
   "people": [
     {
-      "name": "De heer de Jong",
+      "name": "De heer De Jong (Scheikunde)",
       "x": 88.93,
       "y": 16.22,
       "w": 3.4,
@@ -23,14 +23,14 @@
       "h": 4.19
     },
     {
-      "name": "onbekend 5",
+      "name": "Erna Tanis",
       "x": 47.7,
       "y": 23.91,
       "w": 2.41,
       "h": 3.86
     },
     {
-      "name": "onbekend 4",
+      "name": "Eric Braber",
       "x": 38.51,
       "y": 23.31,
       "w": 1.81,
@@ -51,21 +51,21 @@
       "h": 6.77
     },
     {
-      "name": "Onbekend 2",
+      "name": "Frank van der Valk",
       "x": 27.91,
       "y": 23.5,
       "w": 2.55,
       "h": 4.29
     },
     {
-      "name": "Ellen Nijsen",
+      "name": "Ellen Nijssen",
       "x": 60.25,
       "y": 25.63,
       "w": 2.87,
       "h": 5.27
     },
     {
-      "name": "De heer Holleman",
+      "name": "De heer Holleman (Wiskunde)",
       "x": 74.47,
       "y": 26.09,
       "w": 3.24,
@@ -100,7 +100,7 @@
       "h": 5.71
     },
     {
-      "name": "Onbekend 7",
+      "name": "Neeltje Jelier",
       "x": 9.77,
       "y": 27.16,
       "w": 2.29,
@@ -114,14 +114,14 @@
       "h": 4.43
     },
     {
-      "name": "Onbekend 3",
+      "name": "Joke Dorst",
       "x": 31.38,
       "y": 27.46,
       "w": 1.89,
       "h": 3.97
     },
     {
-      "name": "Onbekend 1",
+      "name": "Heleen van den Boogert",
       "x": 18.04,
       "y": 27.5,
       "w": 2.39,
@@ -135,14 +135,14 @@
       "h": 7.19
     },
     {
-      "name": "van Wijck",
+      "name": "De heer Van Wijck (Aardrijkskunde)",
       "x": 21.87,
       "y": 29.87,
       "w": 2.42,
       "h": 4.83
     },
     {
-      "name": "Pau Heerschap",
+      "name": "De heer Heerschap (Nederlands)",
       "x": 29.06,
       "y": 30.71,
       "w": 2.12,
@@ -184,7 +184,7 @@
       "h": 9.97
     },
     {
-      "name": "onbekend 6",
+      "name": "Elrien Vroegindeweij",
       "x": 63.1,
       "y": 35.77,
       "w": 3.63,
@@ -198,7 +198,7 @@
       "h": 5.34
     },
     {
-      "name": "De heer van der Veer",
+      "name": "De heer Van der Veer (Muziek)",
       "x": 80.85,
       "y": 42.67,
       "w": 8.63,
@@ -303,14 +303,14 @@
       "h": 5.33
     },
     {
-      "name": "De heer Moeilijker",
+      "name": "De heer Moeilijker (Engels)",
       "x": 76.75,
       "y": 41.33,
       "w": 5.35,
       "h": 7.13
     },
     {
-      "name": "De heer Bijkerk",
+      "name": "De heer Bijkerk (Godsdienst)",
       "x": 8.63,
       "y": 39.5,
       "w": 4,

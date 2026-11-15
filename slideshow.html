@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slideshow — HAVO 5 · 1986</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
+    .bar { display: flex; align-items: center; gap: 1rem; padding: .8rem 1.2rem; }
+    .bar a { color: var(--muted); text-decoration: none; font-size: .9rem; }
+    .bar a:hover { color: var(--accent); }
+    .bar h1 { font-size: 1rem; margin: 0; flex: 1; text-align: center; font-weight: 600; }
+    .bar .ctr { color: var(--muted); font-size: .9rem; font-variant-numeric: tabular-nums; min-width: 5em; text-align: right; }
+    .show { position: relative; flex: 1; min-height: 0; }
+    .show img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;
+      opacity: 0; transition: opacity .8s ease;
+    }
+    .show img.on { opacity: 1; }
+    .nav {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 2;
+      width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(255,255,255,.15);
+      background: rgba(0,0,0,.45); color: #fff; font-size: 1.4rem; cursor: pointer;
+      backdrop-filter: blur(6px); transition: background .2s;
+    }
+    .nav:hover { background: rgba(245,182,91,.35); }
+    .prev { left: 1rem; } .next { right: 1rem; }
+    .play { background: none; border: 1px solid #444; color: var(--text); border-radius: 999px; padding: .3rem .9rem; cursor: pointer; font: inherit; font-size: .85rem; }
+    .thumbs { display: flex; gap: 6px; overflow-x: auto; padding: .7rem 1rem 1rem; scrollbar-width: thin; }
+    .thumbs img { height: 60px; width: 84px; object-fit: cover; border-radius: 6px; cursor: pointer; opacity: .45; transition: opacity .2s, outline-color .2s; outline: 2px solid transparent; flex: none; }
+    .thumbs img.on, .thumbs img:hover { opacity: 1; }
+    .thumbs img.on { outline-color: var(--accent); }
+    .empty { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); }
+    @media (max-width: 700px) { .nav { width: 40px; height: 40px; } .thumbs img { height: 44px; width: 60px; } }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <a href="index.html">← Overzicht</a>
+    <h1 id="title"></h1>
+    <button class="play" id="play">❚❚ Pauze</button>
+    <span class="ctr" id="ctr"></span>
+  </div>
+  <div class="show" id="show">
+    <button class="nav prev" id="prev" aria-label="Vorige">‹</button>
+    <button class="nav next" id="next" aria-label="Volgende">›</button>
+  </div>
+  <div class="thumbs" id="thumbs"></div>
+  <script src="slideshow.js"></script>
+</body>
+</html>

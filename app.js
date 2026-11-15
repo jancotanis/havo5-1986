@@ -88,7 +88,16 @@
   addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
   addEventListener('resize', () => { if (current >= 0) show(current); });
 
-  fetch('people.json')
+  const YEARS = { '2026': 'Reünie 2026 · groepsfoto', '1986': 'Klassenfoto 1986' };
+  const jaar = YEARS[new URLSearchParams(location.search).get('jaar')] ? new URLSearchParams(location.search).get('jaar') : '2026';
+  const other = jaar === '2026' ? '1986' : '2026';
+  document.getElementById('eyebrow').textContent = YEARS[jaar];
+  document.title = `${YEARS[jaar]} — HAVO 5 · 1986`;
+  document.getElementById('navAlt').innerHTML = `<a href="foto.html?jaar=${other}">${YEARS[other]} →</a>`;
+  photo.src = `havo5-${jaar}.jpeg`;
+  photo.alt = YEARS[jaar];
+
+  fetch(`people-${jaar}.json`)
     .then(r => r.json())
     .then(d => { people = d.people || []; render(); })
     .catch(err => console.error('people.json kon niet geladen worden:', err));

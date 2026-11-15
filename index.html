@@ -3,36 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HAVO 5 · 1986 — Reünie 2026</title>
+  <title>HAVO 5 · 1986</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="hero">
-    <p class="eyebrow">Reünie 2026</p>
+    <p class="eyebrow">Toen &amp; nu</p>
     <h1>HAVO 5 <span>·</span> 1986</h1>
-    <p class="sub">Beweeg over een gezicht om te zien wie het is.</p>
+    <p class="sub">Klassenfoto, reünies en herinneringen.</p>
   </header>
 
-  <main class="layout">
-    <section class="stage" id="stage">
-      <img id="photo" src="havo5-2026.jpeg" alt="Groepsfoto HAVO 5 klas 1986, reünie 2026">
-      <div class="hotspots" id="hotspots"></div>
-      <div class="lens" id="lens" aria-hidden="true">
-        <div class="lens-img" id="lensImg"></div>
-        <div class="lens-name" id="lensName"></div>
-      </div>
-    </section>
-
-    <aside class="panel">
-      <input type="search" id="search" placeholder="Zoek een naam…" aria-label="Zoek een naam">
-      <p class="count" id="count"></p>
-      <ul id="names" class="names"></ul>
-    </aside>
+  <main class="tiles">
+    <a class="tile" href="foto.html?jaar=1986">
+      <img src="havo5-1986.jpeg" alt="" loading="lazy">
+      <div class="cap"><small>Met namen</small><h2>Klassenfoto 1986</h2></div>
+    </a>
+    <a class="tile" href="foto.html?jaar=2026">
+      <img src="havo5-2026.jpeg" alt="" loading="lazy">
+      <div class="cap"><small>Met namen</small><h2>Reünie 2026 · groepsfoto</h2></div>
+    </a>
+    <a class="tile" href="slideshow.html?jaar=2011" data-show="2011">
+      <img alt="" loading="lazy">
+      <div class="cap"><small>Slideshow</small><h2>Reünie 2011 · foto's</h2></div>
+    </a>
+    <a class="tile" href="slideshow.html?jaar=2026" data-show="2026">
+      <img alt="" loading="lazy">
+      <div class="cap"><small>Slideshow</small><h2>Reünie 2026 · foto's</h2></div>
+    </a>
   </main>
 
-  <footer class="foot">Klassenfoto · HAVO 5 · 1986</footer>
-  <script src="app.js"></script>
+  <footer class="foot">HAVO 5 · 1986</footer>
+  <script>
+    document.querySelectorAll('[data-show]').forEach(tile => {
+      const jaar = tile.dataset.show;
+      const soon = () => {
+        tile.classList.add('soon');
+        tile.querySelector('img').src = 'havo5-2026.jpeg';
+        tile.insertAdjacentHTML('beforeend', '<span class="badge">binnenkort</span>');
+      };
+      fetch(`slideshow/${jaar}.json`).then(r => r.json()).then(list => {
+        if (!list.length) return soon();
+        tile.querySelector('img').src = `slideshow/${jaar}/${list[0]}`;
+        tile.querySelector('small').textContent = `Slideshow · ${list.length} foto's`;
+      }).catch(soon);
+    });
+  </script>
 </body>
 </html>

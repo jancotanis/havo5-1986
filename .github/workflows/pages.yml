@@ -26,8 +26,12 @@ jobs:
       # Alleen de publieke bestanden publiceren (geen admin of docs)
       - name: Site samenstellen
         run: |
+          mkdir -p slideshow/2011 slideshow/2026
+          sh tools/maak-lijsten.sh
           mkdir _site
-          cp index.html style.css app.js people.json havo5-2026.jpeg _site/
+          cp index.html foto.html slideshow.html style.css app.js slideshow.js \
+             people-*.json havo5-*.jpeg _site/
+          cp -r slideshow _site/
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

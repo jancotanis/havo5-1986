@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beheer — namen koppelen</title>
+  <style>
+    body { margin: 0; font-family: system-ui, sans-serif; background: #111; color: #eee; }
+    header { display: flex; gap: .5rem; flex-wrap: wrap; align-items: center; padding: .8rem 1rem; background: #1b1b1f; position: sticky; top: 0; z-index: 10; }
+    button, label.btn { background: #f5b65b; color: #111; border: 0; border-radius: 8px; padding: .5rem .9rem; font-weight: 600; cursor: pointer; font-size: .9rem; }
+    button.ghost { background: #333; color: #eee; }
+    #status { color: #aaa; margin-left: auto; font-size: .9rem; }
+    .wrap { position: relative; margin: 1rem; display: inline-block; user-select: none; }
+    .wrap img { display: block; max-width: calc(100vw - 2rem); height: auto; }
+    .box { position: absolute; border: 2px solid #4ade80; border-radius: 6px; cursor: move; }
+    .box.named { border-color: #f5b65b; }
+    .box.sel { border-color: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,.4); }
+    .box span { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,.8); font-size: 11px; padding: 1px 5px; border-radius: 4px; white-space: nowrap; margin-top: 2px; pointer-events: none; }
+    #editor { position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%); background: #1b1b1f; padding: .8rem; border-radius: 12px; display: none; gap: .5rem; box-shadow: 0 10px 40px #000; z-index: 20; }
+    #editor input { padding: .5rem; border-radius: 6px; border: 1px solid #444; background: #000; color: #fff; width: 260px; font-size: 1rem; }
+    .help { padding: 0 1rem; color: #999; font-size: .85rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <select id="jaar" style="padding:.45rem;border-radius:8px;background:#333;color:#eee;border:0"><option value="2026">2026</option><option value="1986">1986</option></select>
+    <button id="detect">Gezichten detecteren</button>
+    <button id="export">Exporteer JSON</button>
+    <label class="btn">Importeer <input type="file" id="import" accept=".json" hidden></label>
+    <button id="clear" class="ghost">Alles wissen</button>
+    <span id="status">Klaar</span>
+  </header>
+  <p class="help">Klik een kader om een naam te typen (Enter = opslaan en naar het volgende kader). Klik op een lege plek in de foto voor een nieuw kader. Versleep kaders om ze te verplaatsen; met het scrollwiel boven een geselecteerd kader verander je de grootte. Delete verwijdert het geselecteerde kader.</p>
+  <div class="wrap" id="wrap">
+    <img id="photo" alt="">
+  </div>
+  <div id="editor">
+    <input id="nameInput" placeholder="Naam">
+    <button id="save">Opslaan</button>
+    <button id="del" class="ghost">Verwijder</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
